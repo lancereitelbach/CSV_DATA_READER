@@ -1,0 +1,33 @@
+# pyproject.toml is Python's modern standard for project configuration
+# It replaces the older setup.py and requirements.txt approach
+
+[project]
+# Basic metadata about your project
+name = "csv-query-tool"              # Package name (used if you publish to PyPI)
+version = "0.1.0"                     # Semantic versioning: major.minor.patch
+description = "Upload CSVs and query them with natural language"
+requires-python = ">=3.9"             # Minimum Python version required
+
+# Core dependencies - these are REQUIRED for the app to run
+dependencies = [
+    # Flask - Web framework for building the HTTP server and handling routes
+    # Version >=3.0.0 means "at least 3.0.0, but can be newer"
+    "flask>=3.0.0",
+    
+    # Pandas - Data manipulation library
+    # Used for reading CSVs and converting them to database-friendly formats
+    "pandas>=2.0.0",
+    
+    # SQLAlchemy - SQL toolkit and ORM (Object-Relational Mapping)
+    # Provides the abstraction layer between Python and SQLite database
+    # Handles connection pooling, query building, and schema creation
+    "sqlalchemy>=2.0.0",
+]
+
+# Optional dependencies - only installed if you explicitly ask for them
+# Usage: pip install -e ".[dev]"  (notice the [dev] part)
+[project.optional-dependencies]
+dev = [
+    # Pytest - Testing framework (we won't implement tests in this hackathon version)
+    "pytest>=7.0.0",
+]
